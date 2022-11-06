@@ -1,5 +1,8 @@
-up: pull start-db apply-db-migrations
+up: docker-login pull start-db apply-db-migrations
 	docker-compose up -d
+
+docker-login:
+	docker logout registry.gitlab.com && docker login registry.gitlab.com -u GinkT -p glpat-SQHj-GGHqMsdknSp7_Gr
 
 pull:
 	docker-compose pull
